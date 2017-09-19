@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Contato } from './contatos.model';
 import { ContatoService } from './contatos.service';
-//teste
+//teste 
 @Component({
   selector: 'app-contatos',
   templateUrl: './contatos.component.html',
