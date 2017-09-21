@@ -9,7 +9,8 @@ export class ContatosDetalheComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    console.log("On INIT");
   }
 
 }
