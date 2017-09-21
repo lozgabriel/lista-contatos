@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params} from '@angular/router';
+import { Location } from '@angular/common';
+
+import { Contato } from '../contatos/contatos.model';
+import { ContatoService } from '../contatos/contatos.service';
 
 @Component({
   selector: 'app-contatos-detalhe',
@@ -7,10 +12,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatosDetalheComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private contatoService: ContatoService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) {}
 
+  //Pegando o Parâmetro da Rota, +params para converter em number
   ngOnInit(): void {
-    console.log("On INIT");
+    this.route.params.forEach((params: Params) => {
+      let id: number = +params['id'];
+
+      this.contatoService.getContato(id)
+        .then((contato: Contato) => {
+            console.log(contato);
+        })
+    });
   }
 
 }

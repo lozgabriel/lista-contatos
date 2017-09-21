@@ -9,4 +9,13 @@ export class ContatoService {
     getContatos(): Promise<Contato[]> {
         return Promise.resolve(CONTATOS);
     }
+
+    getContato(id: number): Promise<Contato> {
+        return this.getContatos()
+            .then((contatos: Contato[]) => {
+                return contatos.find((contato) => {
+                    return contato.id === id;
+                });
+            });
+    }
 }
