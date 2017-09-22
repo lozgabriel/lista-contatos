@@ -12,21 +12,25 @@ import { ContatoService } from '../contatos/contatos.service';
 })
 export class ContatosDetalheComponent implements OnInit {
 
+  contato: Contato;
+
   constructor(
     private contatoService: ContatoService,
     private route: ActivatedRoute,
     private location: Location
   ) {}
 
-  //Pegando o Parâmetro da Rota, +params para converter em number
+  // Pegando o Parâmetro da Rota, +params para converter em number
   ngOnInit(): void {
+    this.contato = new Contato(0, '', '', '');
+
     this.route.params.forEach((params: Params) => {
-      let id: number = +params['id'];
+      const id: number = +params['id'];
 
       this.contatoService.getContato(id)
         .then((contato: Contato) => {
-            console.log(contato);
-        })
+            this.contato = contato;
+        });
     });
   }
 
