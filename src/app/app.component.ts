@@ -6,11 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  carro = 'Ferrari';
 
-  constructor() {
-    console.log(this.carro);
-  }
+  constructor() {}
 
 }
