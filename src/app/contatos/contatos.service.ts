@@ -6,6 +6,7 @@ import { CONTATOS } from './contatos-mock';
 @Injectable()
 export class ContatoService {
 
+    // Pegar os dados de modo assíncrono com a Promise
     getContatos(): Promise<Contato[]> {
         return Promise.resolve(CONTATOS);
     }
