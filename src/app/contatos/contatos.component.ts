@@ -13,6 +13,7 @@ export class ContatosComponent implements OnInit {
   // Atributo Contatos
   contatos: Contato[];
 
+  // Fazendo a injeção de dependência
   constructor(private contatoService: ContatoService) { }
 
   // Usando Promise para receber de forma Assíncrona
