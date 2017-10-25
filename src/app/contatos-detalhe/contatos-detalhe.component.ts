@@ -27,10 +27,14 @@ export class ContatosDetalheComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       const id: number = +params['id'];
 
-      this.contatoService.getContato(id)
+      // Evitando erro em Novo contato
+      if (id) {
+        this.contatoService.getContato(id)
         .then((contato: Contato) => {
             this.contato = contato;
         });
+      }
+
     });
   }
 
