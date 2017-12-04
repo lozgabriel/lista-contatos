@@ -11,9 +11,9 @@ import { ContatoService } from './contatos/contatos.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ContatosComponent,
-    ContatosDetalheComponent
+      AppComponent,
+      ContatosComponent,
+      ContatosDetalheComponent
   ],
   imports: [
     BrowserModule,
