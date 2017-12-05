@@ -6,15 +6,18 @@ import { ContatosDetalheComponent } from '../contatos-detalhe/contatos-detalhe.c
 
 const contatoRoutes: Routes = [
     { path: 'contato',
-      component: ContatosComponent
+      component: ContatosComponent,
+      pathMatch: 'full'
     },
 
     { path: 'contato/save',
-      component: ContatosDetalheComponent
+      component: ContatosDetalheComponent,
+      pathMatch: 'full'
     },
 
     { path: 'contato/save/:id',
-      component: ContatosDetalheComponent
+      component: ContatosDetalheComponent,
+      pathMatch: 'full'
     }
 ];
 
