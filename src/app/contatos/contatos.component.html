@@ -8,15 +8,17 @@
         <th>Email</th>
         <th>Telefone</th>
         <th>Deletar</th>
+        <th>Editar</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let c of contatos" [routerLink]="['/contato/save', c.id]">
+      <tr *ngFor="let c of contatos">
         <th scope="row">{{c.id}}</th>
         <td>{{c.nome}}</td>
         <td>{{c.email}}</td>
         <td>{{c.telefone}}</td>
-        <td><button type="button" class="btn btn-danger">Deletar</button></td>
+        <td><button type="button" class="btn btn-warning pointer" [routerLink]="['/contato/save', c.id]">Editar</button></td>
+        <td><button type="button" class="btn btn-danger pointer">Deletar</button></td> 
       </tr>
     </tbody>
 </table>
