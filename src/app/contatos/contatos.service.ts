@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Contato } from './contatos.model';
 import { arrayContato } from './contatos-mock';
 
+// Injectable emite metadados para as dependências
 @Injectable()
 export class ContatoService {
 
@@ -14,6 +15,6 @@ export class ContatoService {
     // Método getContato para pegar o ID
     getContato(id: number): Promise<Contato> {
         return this.getContatos()
-            .then((contatos: Contato[]) => contatos.find((contatu) => contatu.id === id));
+            .then((contatos: Contato[]) => contatos.find((contato) => contato.id === id));
     }
 }
