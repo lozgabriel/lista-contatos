@@ -18,7 +18,8 @@ import { ContatoService } from './contatos/contatos.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [ ContatoService ],
   bootstrap: [AppComponent]

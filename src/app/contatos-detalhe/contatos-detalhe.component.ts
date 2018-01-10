@@ -13,6 +13,7 @@ import { ContatoService } from '../contatos/contatos.service';
 export class ContatosDetalheComponent implements OnInit {
 
   contato: Contato;
+  private isNew: boolean = true;
 
   constructor(
     private contatoService: ContatoService,
@@ -20,6 +21,11 @@ export class ContatosDetalheComponent implements OnInit {
     private location: Location
   ) {}
 
+/*
+    teste() {
+    console.log(this.contato);
+  }
+*/
   // Pegando o Parâmetro da Rota, +params para converter em number
   ngOnInit(): void {
     this.contato = new Contato(0, '', '', '');
@@ -29,6 +35,8 @@ export class ContatosDetalheComponent implements OnInit {
 
       // Evitando erro em Novo contato
       if (id) {
+
+        this.isNew = false;
         this.contatoService.getContato(id)
         .then((contato: Contato) => {
             this.contato = contato;
@@ -36,6 +44,40 @@ export class ContatosDetalheComponent implements OnInit {
       }
 
     });
+  }
+
+  getFormGroupClass(isValid: boolean, isPristine: boolean): {} {
+    return {
+        'form-group': true,
+        'has-danger': !isValid && !isPristine,
+        'has-success': isValid && !isPristine
+    };
+}
+
+  getFormControlClass(isValid: boolean, isPristine: boolean): {} {
+    return {
+        'form-control': true,
+        'form-control-danger': !isValid && !isPristine,
+        'form-control-success': isValid && !isPristine
+    };
+  }
+
+  onSubmit(): void {
+    let promise: Promise<Contato>;
+
+    if (this.isNew) {
+        console.log('cadastrar contato');
+        promise = this.contatoService.create(this.contato);
+    } else {
+        console.log('alterar contato');
+        promise = this.contatoService.update(this.contato);
+    }
+
+    promise.then(contato => this.goBack());
+  }
+
+  goBack(): void {
+      this.location.back();
   }
 
 }
